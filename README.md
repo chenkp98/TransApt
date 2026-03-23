@@ -109,13 +109,13 @@ consensus = results["consensus"]  # Intersection of the three methods
 
 BridgeAPT uses GVP to process 3D coordinates and dihedral angle features, combined with a Transformer encoder to generate nucleic acid sequences.
 
-- 输入：PDB 文件中的原子坐标（C4', C1', N1, C2, C5', O5', P）
-- 特征：坐标特征 [B, L, 21] + 二面角 sin/cos 特征 [B, L, 6]
-- 输出：核酸序列（A/T/C/G）
+- Input：Atomic coordinates from PDB files (C4', C1', N1, C2, C5', O5', P)
+- Features: Coordinate features [B, L, 21] + Dihedral sin/cos features [B, L, 6]
+- Output: Nucleic acid sequences (A/T/C/G)
 
-形状筛选模块（DeepDNAShape）默认提取 8 种特征：MGW、Roll、HelT、ProT、Shift、Slide、Rise、Tilt。
+The shape screening module (DeepDNAShape) extracts 8 features by default: MGW, Roll, HelT, ProT, Shift, Slide, Rise, and Tilt.
 
-## 依赖项
+## Dependencies
 
 - Python >= 3.8
 - torch >= 1.10
