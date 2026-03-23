@@ -1,0 +1,19 @@
+name: bridgeapt
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.8
+  - pip
+  - pip:
+    - torch>=1.10
+    - biopython>=1.79
+    - pandas>=1.3
+    - numpy>=1.21
+    - scikit-learn>=1.0
+    - matplotlib>=3.5
+    - seaborn>=0.11
+    - tensorflow>=2.8,<2.16
+    - umap-learn>=0.5
+    - bridgeapt
