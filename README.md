@@ -40,7 +40,7 @@ transapt-analyze -i ./pdb_files/ -o ./output/
 ```
 
 ## Parameter Descriptions
-### `TransApt-run`
+### `transapt-run`
 
 | Parameter | Short | Default | Description |
 |------|------|--------|------|
