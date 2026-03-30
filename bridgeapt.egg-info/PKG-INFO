@@ -1,8 +1,8 @@
 Metadata-Version: 2.4
-Name: bridgeapt
+Name: transapt
 Version: 0.1.0
 Summary: Nucleic acid sequence generation from 3D structure using GVP + Transformer
-Requires-Python: >=3.8
+Requires-Python: =3.10
 Requires-Dist: torch>=1.10
 Requires-Dist: biopython>=1.79
 Requires-Dist: pandas>=1.3
