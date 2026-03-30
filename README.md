@@ -65,7 +65,7 @@ In addition to `transapt-run --analyze`it supports:
 
 ## Output Files
 
-After running `TransApt-analyze`, the output directory structure is as follows:
+After running `transapt-analyze`, the output directory structure is as follows:
 
 ```
 output/
