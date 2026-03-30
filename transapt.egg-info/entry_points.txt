@@ -1,0 +1,3 @@
+[console_scripts]
+transapt-analyze = transapt.cli:analyze
+transapt-run = transapt.cli:main
