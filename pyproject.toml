@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "transapt"
 version = "0.1.0"
 description = "Nucleic acid sequence generation from 3D structure using GVP + Transformer"
-requires-python = "=3.10"
+requires-python = ">=3.10"
 dependencies = [
     "torch>=1.10",
     "biopython>=1.79",
