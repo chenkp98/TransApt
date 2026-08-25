@@ -125,3 +125,7 @@ The shape screening module (DeepDNAShape) extracts 8 features by default: MGW, R
 - scikit-learn >= 1.0
 - matplotlib >= 3.5
 - seaborn >= 0.11
+
+## Acknowledgements & Third-Party Licenses
+
+TransApt integrates the [deepDNAshape](https://github.com/JinsenLi/deepDNAshape) model (developed by Jinsen Li) for DNA shape feature prediction. We gratefully acknowledge the authors for providing their model under the BSD 3-Clause License.
