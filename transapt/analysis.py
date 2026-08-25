@@ -2,7 +2,7 @@
 Shape feature extraction and clustering filter module.
 
 Pipeline:
-  1. Extract shape features via AptShape Python API (predictor.predictBatch)
+  1. Extract shape features via deepDNAshape API (pred.predictBatch)
   2. Combine reference + generated sequences into a feature matrix
   3. Cluster with K-Means, Hierarchical, and GMM
   4. Output sequences that fall in the same cluster as the reference in ALL three methods
@@ -17,9 +17,14 @@ DEFAULT_FEATURES = ["MGW", "Roll", "HelT", "ProT", "Shift", "Slide", "Rise", "Ti
 
 
 def _get_predictor():
-    """Load AptShape predictor (embedded subpackage)."""
-    from .aptshape.predictor import predictor
-    return predictor(mode="cpu")
+    """Load deepDNAshape predictor."""
+    try:
+        from deepDNAshape.predictor import predictor
+        return predictor(mode="cpu")
+    except ImportError as e:
+        raise ImportError(
+            "deepDNAshape package not found. Please install it from https://github.com/JinsenLi/deepDNAshape"
+        ) from e
 
 
 def extract_shape_features(
@@ -29,7 +34,8 @@ def extract_shape_features(
     batch_size: int = 256,
 ) -> np.ndarray:
     """
-    Extract shape features in batch. Returns [n_seqs, n_features] matrix.
+    Extract shape features in batch via deepDNAshape.
+    Returns [n_seqs, n_features] matrix.
     Each feature value is the mean across all positions in the sequence.
     """
     if features is None:
@@ -83,17 +89,6 @@ def cluster_and_filter(
     prefix: str = "result",
     methods: list = None,
 ) -> dict:
-    """
-    Cluster reference + generated sequences and filter those in the same cluster
-    as the reference across all three methods (intersection).
-
-    Returns:
-        dict with keys:
-          - "kmeans": sequences selected by K-Means
-          - "hierarchical": sequences selected by hierarchical clustering
-          - "gmm": sequences selected by GMM
-          - "consensus": intersection of all three methods (main output)
-    """
     from sklearn.preprocessing import StandardScaler
     import umap
     import matplotlib
