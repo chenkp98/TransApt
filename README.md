@@ -121,7 +121,7 @@ The shape screening module (DeepDNAShape) extracts 8 features by default: MGW, R
 - Python = 3.10
 - torch >= 1.10
 - biopython >= 1.79
-- tensorflow（DeepDNAShape 依赖）
+- deepDNAshape = 0.1.0
 - scikit-learn >= 1.0
 - matplotlib >= 3.5
 - seaborn >= 0.11
