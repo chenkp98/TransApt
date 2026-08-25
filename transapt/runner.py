@@ -106,7 +106,7 @@ class Runner:
         features: list = None,
         n_clusters: int = 5,
         methods: list = None,
-        layer: int = 7,
+        layer: int = 7,  # 保留此参数，传递给 deepDNAshape
     ) -> dict:
         from .analysis import extract_shape_features, cluster_and_filter, DEFAULT_FEATURES
         from .compute.extract_coord import extra_six_coord
@@ -134,7 +134,7 @@ class Runner:
             ref_seq = ref_seq[:length]
         ref_sequences = [ref_seq]
 
-        # Step 3: Extract shape features
+        # Step 3: Extract shape features via deepDNAshape
         print(f"[2/3] Extracting shape features ({len(features)} features) ...")
         ref_features = extract_shape_features(ref_sequences, features=features, layer=layer)
         gen_features = extract_shape_features(gen_sequences, features=features, layer=layer)
