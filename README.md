@@ -31,7 +31,7 @@ transapt-run -i structure.pdb -o ./output/
 transapt-analyze -i structure.pdb -o ./output/
 ```
 
-Workflow: Generates 1,000 sequences → Extracts shape features via DeepDNAShape → Clusters using three methods (K-Means / Hierarchical / GMM) → Outputs sequences that fall into the same cluster as the original sequence across all three methods (Intersection).
+##### Workflow: Generates 1,000 sequences → AptShape(Extracts shape features via deepDNAshape → Clusters using three methods (K-Means / Hierarchical / GMM)) → Outputs sequences that fall into the same cluster as the original sequence across all three methods (Intersection).
 
 ### Batch Processing
 
