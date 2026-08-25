@@ -24,8 +24,6 @@ def main():
                         help="Run shape feature extraction and clustering after generation")
     parser.add_argument("--clusters", "-k", type=int, default=5,
                         help="Number of clusters for --analyze mode (default: 5)")
-    parser.add_argument("--layer", type=int, default=7,
-                        help="AptShape flanking layer 0-7 for --analyze mode (default: 7)")
 
     args = parser.parse_args()
 
@@ -72,7 +70,6 @@ def main():
                     temperature=args.temperature,
                     length=args.length,
                     n_clusters=args.clusters,
-                    layer=args.layer,
                 )
                 consensus_path = analysis_dir / f"{pdb_file.stem}_final.txt"
                 n_consensus = len(results.get("consensus", []))
@@ -125,8 +122,6 @@ def analyze():
                         help="Shape features to extract (default: MGW Roll HelT ProT Shift Slide Rise Tilt)")
     parser.add_argument("--methods", nargs="+", default=["kmeans", "hierarchical", "gmm"],
                         help="Clustering methods (default: kmeans hierarchical gmm)")
-    parser.add_argument("--layer", type=int, default=7,
-                        help="AptShape flanking layer 0-7 (default: 7)")
     parser.add_argument("--model-path", "-m", default=None,
                         help="Custom weights file path")
 
@@ -167,7 +162,6 @@ def analyze():
                 features=args.features,
                 n_clusters=args.clusters,
                 methods=args.methods,
-                layer=args.layer,
             )
             consensus_path = pdb_out_dir / f"{pdb_file.stem}_final.txt"
             print(f"\n  ✓ Final consensus sequences → {consensus_path}")
