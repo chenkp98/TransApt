@@ -35,6 +35,7 @@ Workflow: Generates 1,000 sequences → Extracts shape features via DeepDNAShape
 
 ### Batch Processing
 
+Note: Ensure deepDNAshape is installed before running transapt-analyze.
 ```bash
 transapt-analyze -i ./pdb_files/ -o ./output/
 ```
